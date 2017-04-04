@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+15.times do |_a|
+  Author.create(name: Faker::Book.author)
+end
+
+100.times do |_t|
+  Task.create(name:      Faker::Book.title,
+              content:   Faker::Lorem.paragraph,
+              status:    rand(0..1),
+              author_id: rand(0..15))
+end
