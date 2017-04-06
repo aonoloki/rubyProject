@@ -16,5 +16,6 @@ end
   Task.create(name:      Faker::Book.title,
               content:   Faker::Lorem.paragraph,
               status:    rand(0..1),
-              author_id: rand(0..15))
+              author_id: rand(0..15),
+              date_due:  Faker::Time.between(DateTime.now - 5, DateTime.now + 5))
 end

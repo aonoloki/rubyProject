@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks_delay_depassed = Task.where("date_due < ?", DateTime.now)
+    @tasks_current = Task.where("date_due > ?", DateTime.now)
   end
 
   # GET /tasks/1
@@ -69,6 +70,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :content, :status, :author_id)
+      params.require(:task).permit(:name, :content, :status, :author_id, :date_due)
     end
 end
