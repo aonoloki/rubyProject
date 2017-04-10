@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Created to test my abilities
 
-Things you may want to cover:
+- V0.1 - -stable-
+	Created RoR App -> " CalKm ", index at: http://localhost:3000/paths
+	Jquery ready (gems included)
+	Added classes to horsepower -> .hp, in calKm/app/views/paths/_form.html.erb
+	Added classes to distance -> .distance, in calKm/app/views/paths/_form.html.erb
+	Added classes to total -> .total, in calKm/app/views/paths/_form.html.erb
+	Added calc.js, in calKm/app/assets/config/javascripts/channels/calc.js
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- v0.2 - -in dev-
+	adding Jquery for the total calcul method -on work-
+	Live reloading (No refresh to output the method) -?-
