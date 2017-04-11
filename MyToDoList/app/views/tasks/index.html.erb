@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Tasks delay depassed</h2>
+<h2>Tasks delay depassed undone</h2>
 
 <table>
   <thead>
@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @tasks_delay_depassed.each do |task| %>
+    <% @tasks_delay_depassed_undone.each do |task| %>
     <%= render 'tasks/task', task: task %>
     <% end %>
   </tbody>
@@ -37,6 +37,27 @@
 
   <tbody>
     <% @tasks_current.each do |task| %>
+    <%= render 'tasks/task', task: task %>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Tasks done</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th>Status</th>
+      <th>Author</th>
+      <th>Date due</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks_done.each do |task| %>
     <%= render 'tasks/task', task: task %>
     <% end %>
   </tbody>
