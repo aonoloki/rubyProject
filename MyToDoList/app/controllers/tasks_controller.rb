@@ -4,9 +4,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks_delay_depassed_undone = Task.where("date_due < ? AND status = ?", DateTime.now, false)
-    @tasks_done = Task.where("status = ?", true)
-    @tasks_current = Task.where("date_due > ? AND status = ?", DateTime.now, false)
+    @Imperative = Task.depassed.undone.order(:date_due)
+    @Current = Task.current.undone.order(:date_due)
+    @Done = Task.done.order(:date_due)
   end
 
   # GET /tasks/1
