@@ -1,68 +1,17 @@
-<p id="notice"><%= notice %></p>
+<%= render 'tasks', title: 'Imperative', tasks: @Imperative %>
+<%= render 'tasks', title: 'Current', tasks: @Current %>
+<%= render 'tasks', title: 'Done', tasks: @Done %>
 
-<h2>Tasks delay depassed undone</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Status</th>
-      <th>Author</th>
-      <th>Date due</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @Imperative.each do |task| %>
-    <%= render 'tasks/task', task: task %>
-    <% end %>
-  </tbody>
-</table>
-
-<h2>Tasks in progress</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Status</th>
-      <th>Author</th>
-      <th>Date due</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @Current.each do |task| %>
-    <%= render 'tasks/task', task: task %>
-    <% end %>
-  </tbody>
-</table>
-
-<h2>Tasks done</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Status</th>
-      <th>Author</th>
-      <th>Date due</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @Done.each do |task| %>
-    <%= render 'tasks/task', task: task %>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>
+<%= content_for :sidebar do %>
+  <li>
+    <%=content_tag 'span', 'Imperative tasks'.upcase, class: 'text-warning'%> :
+    <%=content_tag 'span',  @Imperative.count, class: 'badge'%>
+  </li>
+  <li>
+    <%=content_tag 'span', 'Current tasks'.upcase, class: 'text-success'%>  :
+    <%=content_tag 'span',   @Current.count, class: 'badge'%>
+  </li>
+<%end%>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_task_path,
+            :class => 'btn btn-primary' %>
